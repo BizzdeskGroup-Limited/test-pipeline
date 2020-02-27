@@ -8,10 +8,10 @@ node {
     stage 'Build Jar'
     echo 'Building Jar file...'
     sh 'mvn clean package'
-    docker.withRegistry("${env.REGISTRY_PROTOCOL}://${env.REGISTRY_HOST}:${env.REGISTRY_PORT}", 'docker_registry_credentials_id') {
+    docker.withRegistry("${env.REGISTRY_PROTOCOL}://${env.REGISTRY_HOST}", 'docker_registry_credentials_id') {
         stage 'Build Docker Image'
         echo 'Building docker image....'
-        String imageName = "${env.REGISTRY_HOST}:${env.REGISTRY_PORT}/test-pipeline:latest"
+        String imageName = "${env.REGISTRY_HOST}/test-pipeline:latest"
         sh "docker build -t ${imageName}  ."
         def img = docker.image(imageName)
         stage 'Push Docker Image'
