@@ -18,7 +18,8 @@ node {
         echo 'Pushing docker image....'
         img.push()
     }
-    //stage 'Deploy to Kubernetes'
-    //echo 'Deploying....'
+    stage 'Deploy to Kubernetes'
+    echo 'Deploying....'
+    sh 'kubectl run --image=devwsregistry.bizzdeskgroup.net/test-pipeline testpipeline --port=8080'
     //sh "helm upgrade --install logs-service ./helm --set image.repository=${env.KUBERNETES_REGISTRY_URL}/logs-service --set replicaCount=${env.REPLICAS}"
 }

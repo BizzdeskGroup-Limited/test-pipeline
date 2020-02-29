@@ -1,4 +1,4 @@
-FROM openjdk:8
+FROM openjdk:8-slim
 MAINTAINER "Ushahemba Ukange <ukange.ushahemba@gmail.com>"
 
 VOLUME ["/mnt/devdir"]
