@@ -1,5 +1,6 @@
 package com.example.testpipeline.controller;
 
+import com.example.testpipeline.helpers.Greeting;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -7,7 +8,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class PipelineController {
 
     @RequestMapping(value = "/hello")
-    public String sayHello() {
-        return "Hello Test";
+    public Greeting sayHello() {
+        System.out.println("Hello Test");
+        Greeting greeting = new Greeting();
+        greeting.setSalutation("Hello Test");
+        return greeting;
     }
 }
