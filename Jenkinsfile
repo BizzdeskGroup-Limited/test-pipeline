@@ -21,7 +21,5 @@ node {
     }
     stage 'Deploy to Kubernetes'
     echo 'Deploying....'
-    sh
-    sh 'kubectl run --image=devwsregistry.bizzdeskgroup.net/test-pipeline testpipeline --port=8080'
-    //sh "helm upgrade --install logs-service ./helm --set image.repository=${env.KUBERNETES_REGISTRY_URL}/logs-service --set replicaCount=${env.REPLICAS}"
+    sh "helm upgrade --install test-pipeline ./helm --set image.repository=${env.REGISTRY_HOST}/test-pipeline --set replicaCount=${env.REPLICAS}"
 }
