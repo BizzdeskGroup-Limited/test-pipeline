@@ -21,5 +21,5 @@ node {
     }
     stage 'Deploy to Kubernetes'
     echo 'Deploying....'
-    sh "helm upgrade --install test-pipeline ./helm --set image.repository=${env.REGISTRY_HOST}/test-pipeline:latest --set replicaCount=${env.REPLICAS}"
+    sh "helm upgrade --install test-pipeline ./helm --set image.repository=${env.REGISTRY_HOST}/test-pipeline --set replicaCount=${env.REPLICAS}"
 }
