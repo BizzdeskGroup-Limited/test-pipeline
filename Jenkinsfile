@@ -13,7 +13,7 @@ node {
         stage 'Build Docker Image'
         echo 'Building docker image....'
         String imageName = "${env.REGISTRY_HOST}/test-pipeline:latest"
-        sh "docker build -t ${imageName}  ."
+        sh "docker build -t ${imageName} ."
         def img = docker.image(imageName)
         stage 'Push Docker Image'
         echo 'Pushing docker image....'
@@ -21,5 +21,5 @@ node {
     }
     stage 'Deploy to Kubernetes'
     echo 'Deploying....'
-    sh "helm upgrade --install test-pipeline ./helm --set image.repository=${env.REGISTRY_HOST}/test-pipeline --set replicaCount=${env.REPLICAS}"
+    sh "helm upgrade --install test-pipeline ./helm --set image.repository=${env.REGISTRY_HOST}/test-pipeline:latest --set replicaCount=${env.REPLICAS}"
 }
