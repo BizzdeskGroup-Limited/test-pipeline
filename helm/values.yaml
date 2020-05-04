@@ -3,7 +3,7 @@
 # Declare variables to be passed into your templates.
 
 replicaCount: 2
-
+fullName: test-pipeline
 image:
   pullPolicy: Always
   # Overrides the image tag whose default is the chart version.

@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "helm.fullname" . }}
+  name: {{ .Values.fullName }}
   labels:
     {{- include "helm.labels" . | nindent 4 }}
 spec:
@@ -11,6 +11,6 @@ spec:
       targetPort: {{ .Values.service.internalPort }}
       nodePort: {{ .Values.service.externalPort }}
       protocol: TCP
-      name: http
+      name: {{ .Values.fullName }}
   selector:
     {{- include "helm.selectorLabels" . | nindent 4 }}
