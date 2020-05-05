@@ -36,7 +36,7 @@ securityContext: {}
 
 service:
   type: NodePort
-  externalPort: 32150
+  externalPort: 32152
   internalPort: 8080
 
 ingress:
