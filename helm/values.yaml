@@ -35,7 +35,7 @@ securityContext: {}
   # runAsUser: 1000
 
 service:
-  type: NodePort
+  type: LoadBalancer
   externalPort: 32150
   internalPort: 8080
 

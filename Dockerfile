@@ -1,7 +1,6 @@
 FROM openjdk:8-slim
 MAINTAINER "Ushahemba Ukange <ukange.ushahemba@gmail.com>"
 
-VOLUME ["/mnt/devdir"]
 # Define working directory.
 WORKDIR /work
 ADD target/test-pipeline-0.0.1-SNAPSHOT.jar /work/test-pipeline-0.0.1-SNAPSHOT.jar
